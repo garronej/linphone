@@ -261,6 +261,8 @@ const struct addrinfo * linphone_nat_policy_get_stun_server_addrinfo(LinphoneNat
 			ms_usleep(50000);
 			wait_ms += 50;
 		}
+	}else{
+		linphone_nat_policy_resolve_stun_server(policy);
 	}
 	return policy->stun_addrinfo;
 }
@@ -312,6 +314,7 @@ LinphoneNatPolicy * linphone_core_create_nat_policy_from_config(LinphoneCore *lc
 				policy = linphone_config_create_nat_policy_from_section(config, section);
 				policy->lc = lc;
 				finished = TRUE;
+				linphone_nat_policy_resolve_stun_server(policy);
 			}
 		} else finished = TRUE;
 	belle_sip_free(section);

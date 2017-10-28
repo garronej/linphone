@@ -137,6 +137,7 @@ static void linphone_proxy_config_init(LinphoneCore* lc, LinphoneProxyConfig *cf
 		} else {
 			ms_error("Cannot create default nat policy with ref [%s] for proxy config [%p]",nat_policy_ref,cfg);
 		}
+		linphone_nat_policy_resolve_stun_server(policy);
 	}
 }
 
