@@ -46,6 +46,10 @@ public class LinphoneChatRoomImpl implements LinphoneChatRoom {
 	private native void finalize(long nativePtr);
 	private native boolean islimeAvailable(long nativePtr);
 
+	public long getNativePtr() {
+		return this.nativePtr;
+	}
+
 	protected void finalize() throws Throwable {
 		if (nativePtr != 0) {
 			finalize(nativePtr);
