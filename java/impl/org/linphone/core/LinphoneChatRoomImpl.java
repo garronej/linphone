@@ -23,7 +23,7 @@ import org.linphone.core.LinphoneChatMessage.StateListener;
 import org.linphone.core.LinphoneCall;
 
 @SuppressWarnings("deprecation")
-public class LinphoneChatRoomImpl implements LinphoneChatRoom {
+class LinphoneChatRoomImpl implements LinphoneChatRoom {
 	protected final long nativePtr;
 	private native long createLinphoneChatMessage(long ptr, String message);
 	private native long getPeerAddress(long ptr);
@@ -45,10 +45,6 @@ public class LinphoneChatRoomImpl implements LinphoneChatRoom {
 	private native void sendChatMessage(long ptr, Object message, long messagePtr);
 	private native void finalize(long nativePtr);
 	private native boolean islimeAvailable(long nativePtr);
-
-	public long getNativePtr() {
-		return this.nativePtr;
-	}
 
 	protected void finalize() throws Throwable {
 		if (nativePtr != 0) {
